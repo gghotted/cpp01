@@ -1,21 +1,17 @@
 #include "ZombieEvent.hpp"
 
-ZombieEvent::ZombieEvent(void) {
-  std::srand(time(0));
-}
+std::string ZombieEvent::type = "default";
 
-ZombieEvent::~ZombieEvent(void) {}
-
-void ZombieEvent::setZombieType(std::string type) {
-  this->type = type;
+void ZombieEvent::setZombieType(std::string _type) {
+  type = _type;
 }
 
 Zombie* ZombieEvent::newZombie(std::string name) {
-  return (new Zombie(this->type, name));
+  return (new Zombie(type, name));
 }
 
 Zombie ZombieEvent::randomChump(void) {
-  Zombie zombie(this->type, ZombieEvent::generateRandomName());
+  Zombie zombie(type, generateRandomName());
   zombie.announce();
   return zombie;
 }

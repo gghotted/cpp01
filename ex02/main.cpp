@@ -2,10 +2,9 @@
 #include "ZombieEvent.hpp"
 
 void createTeam(std::string teamName, Zombie** team, std::string *names) {
-  ZombieEvent factory;
-  factory.setZombieType(teamName);
+  ZombieEvent::setZombieType(teamName);
   for (int i = 0; i < 3; i++)
-    team[i] = factory.newZombie(names[i]);
+    team[i] = ZombieEvent::newZombie(names[i]);
 }
 
 void clearTeam(Zombie** team) {
@@ -15,11 +14,10 @@ void clearTeam(Zombie** team) {
 
 void fight(Zombie **team1, Zombie **team2, int round) {
   std::cout << "\nfight round: " << round;
-  ZombieEvent factory;
-  factory.setZombieType("minion");
+  ZombieEvent::setZombieType("minion");
   for (int i = 0; i < 3; i++) {
     std::cout << '\n';
-    Zombie minion = factory.randomChump();
+    Zombie minion = ZombieEvent::randomChump();
     team1[i]->announce();
     team2[i]->announce();
   }
