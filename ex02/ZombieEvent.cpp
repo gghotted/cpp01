@@ -4,6 +4,7 @@ std::string ZombieEvent::type = "default";
 
 void ZombieEvent::setZombieType(std::string _type) {
   type = _type;
+  std::srand(time(0));
 }
 
 Zombie* ZombieEvent::newZombie(std::string name) {
