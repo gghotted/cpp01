@@ -10,6 +10,9 @@ class Brain {
   ~Brain(void);
 
   std::string identify(void);
+
+ private:
+  std::string _identify;
 };
 
 #endif

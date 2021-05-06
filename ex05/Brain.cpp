@@ -1,14 +1,21 @@
 #include "Brain.hpp"
 
-Brain::Brain(void) {}
+static void touppers(std::string& str) {
+  int len = str.length();
+  for (int i = 0; i < len; i++)
+    str[i] = std::toupper(str[i]);
+}
+
+Brain::Brain(void) {
+  std::stringstream ss;
+  ss << this;
+  this->_identify = ss.str();
+  touppers(this->_identify);
+  this->_identify[1] = 'x';
+}
 
 Brain::~Brain(void) {}
 
 std::string Brain::identify(void) {
-  std::stringstream ss;
-  ss << this;
-  std::string ptr = ss.str();
-  for (int i = 2; i < ptr.length(); i++)
-    ptr[i] = std::toupper(ptr[i]);
-  return ptr;
+  return this->_identify;
 }
