@@ -40,7 +40,7 @@ int ReplaceMachine::save(void) {
 void ReplaceMachine::readFile(void) {
   std::ifstream ifs(fileName);
   if (ifs.fail())
-    throw std::invalid_argument(fileName + ": invalid file");
+    throw std::invalid_argument(this->fileName + ": " + strerror(errno));
   std::stringstream ss;
   ss << ifs.rdbuf();
   this->content = ss.str();
