@@ -1,5 +1,7 @@
 #include "Zombie.hpp"
 
+Zombie::Zombie(void) {}
+
 Zombie::Zombie(std::string type, std::string name) {
   this->type = type;
   this->name = name;
